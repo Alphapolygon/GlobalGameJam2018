@@ -39,7 +39,7 @@ public class PlayerLevelTimeLogic : MonoBehaviour {
         LevelTime =Time.timeSinceLevelLoad -tempTime;
 
         if(updateTime)
-            Timetext.text = ""+LevelTime;
+            Timetext.text = "" + System.Math.Round(LevelTime, 2); ;
 	}
 
 }
