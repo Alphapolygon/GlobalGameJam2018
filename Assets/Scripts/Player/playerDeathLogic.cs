@@ -37,6 +37,7 @@ public class playerDeathLogic : MonoBehaviour {
     }
 
     private IEnumerator ReloadScene() {
+        this.transform.GetChild(0).gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(1);
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
