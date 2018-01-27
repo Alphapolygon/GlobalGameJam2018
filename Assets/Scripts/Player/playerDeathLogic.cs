@@ -10,6 +10,9 @@ public class playerDeathLogic : MonoBehaviour {
     private PlatformerAnimation2D animationLogic;
     public bool dying = false;
 
+    [SerializeField]
+    private GameObject DeathEffect;
+
     void Start() {
         animationLogic = GetComponent<PlatformerAnimation2D>();
     }
@@ -17,17 +20,24 @@ public class playerDeathLogic : MonoBehaviour {
     // Use this for initialization
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag.Equals("Enemy")) {
-            Debug.Log("Enemy");
+            Instantiate(DeathEffect, this.transform.position, Quaternion.identity);
+            die();
         }
 
     }
 
     public void die() {
         dying = true;
-
+        this.GetComponent<PlayerController2D>().enabled = false;
+        AutoFade.FadeOut(Color.black, restartCurrentScene);	
     }
 
     public void restartCurrentScene() {
+        StartCoroutine(ReloadScene());
+    }
+
+    private IEnumerator ReloadScene() {
+        yield return new WaitForSecondsRealtime(1);
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }

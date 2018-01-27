@@ -18,11 +18,15 @@ public class SpikesController : MonoBehaviour {
 
     }
 
+    void Update() {
+        this.transform.position = Vector3.Slerp(this.transform.position, MovetoPos.position, Time.fixedDeltaTime *15f);
+        if (this.transform.position == MovetoPos.position) onMoveTo();
+    }
     public void onMoveTo() {
         move = true;
         wayPointCount++;
         if (wayPointCount >= wayPoints.nodes.Count) wayPointCount = 0;
         MovetoPos = wayPoints.nodes[wayPointCount];
-        this.GetComponent<DoTweenPositionHelper>().onTweenTo(MovetoPos);
+       // this.GetComponent<DoTweenPositionHelper>().onTweenTo(MovetoPos);
     }
 }
