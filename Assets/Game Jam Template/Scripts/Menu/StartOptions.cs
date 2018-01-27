@@ -88,6 +88,10 @@ public class StartOptions : MonoBehaviour {
 		}	
 	}
 
+    public void SceneToLoad(int index) {
+        sceneToStart = index;
+        LoadDelayed();
+    }
 
 	public void LoadDelayed()
 	{
