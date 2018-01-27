@@ -24,6 +24,14 @@ public class playerDeathLogic : MonoBehaviour {
             die();
         }
 
+
+        if (other.tag.Equals("End")) {
+            float time = (this.GetComponent<PlayerLevelTimeLogic>().LevelTime - Time.timeSinceLevelLoad);
+            this.GetComponent<PlayerLevelTimeLogic>().updateTime = false;
+        }
+
+    
+
     }
 
     public void die() {

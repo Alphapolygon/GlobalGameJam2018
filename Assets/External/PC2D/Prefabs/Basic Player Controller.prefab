@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 114593905039341760}
   - component: {fileID: 114948575212798660}
   - component: {fileID: 114159152180391656}
+  - component: {fileID: 114896653122256104}
+  - component: {fileID: 114176192745270870}
   m_Layer: 0
   m_Name: Basic Player Controller
   m_TagString: Untagged
@@ -412,6 +414,23 @@ MonoBehaviour:
   dying: 0
   DeathEffect: {fileID: 1602934881230432, guid: fa6d2ae8e3ff7944abac848ea1c24a2d,
     type: 2}
+--- !u!114 &114176192745270870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699dc3cdecac41f4da82f2813193f500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelTime: 0
+  StartTime: 0
+  tempTime: 0
+  startpos: {x: 0, y: 0, z: 0}
+  timer: 0
+  Timetext: {fileID: 0}
 --- !u!114 &114593905039341760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +457,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8941117ad514ae49b3feb37b3634fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114896653122256104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699dc3cdecac41f4da82f2813193f500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelTime: 0
+  StartTime: 0
+  tempTime: 0
+  startpos: {x: 0, y: 0, z: 0}
+  timer: 0
+  Timetext: {fileID: 0}
 --- !u!114 &114915128204738236
 MonoBehaviour:
   m_ObjectHideFlags: 1

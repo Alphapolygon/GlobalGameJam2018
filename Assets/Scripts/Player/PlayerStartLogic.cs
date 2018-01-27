@@ -8,7 +8,13 @@ public class PlayerStartLogic : MonoBehaviour {
 	void Start () {
         GameObject start = GameObject.FindGameObjectWithTag("Start");
         this.transform.position = start.transform.position;
+        StartCoroutine(wait());
 	}
-	
+
+
+    IEnumerator wait() {
+        yield return new WaitForSecondsRealtime(0.1f);
+        this.GetComponent<PlayerLevelTimeLogic>().init();
+    }
 
 }
