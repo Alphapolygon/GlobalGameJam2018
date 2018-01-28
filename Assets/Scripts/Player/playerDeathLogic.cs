@@ -21,6 +21,7 @@ public class playerDeathLogic : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag.Equals("Enemy")) {
             Instantiate(DeathEffect, this.transform.position, Quaternion.identity);
+            this.GetComponent<PlayerAudioClips>().onPlayerimpact();
             die();
         }
 
@@ -28,6 +29,7 @@ public class playerDeathLogic : MonoBehaviour {
         if (other.tag.Equals("End")) {
             float time = (this.GetComponent<PlayerLevelTimeLogic>().LevelTime - Time.timeSinceLevelLoad);
             this.GetComponent<PlayerLevelTimeLogic>().updateTime = false;
+            this.GetComponent<PlayerAudioClips>().onPlayerEnd();
         }
 
     

@@ -52,6 +52,7 @@ public class PlayerController2D : MonoBehaviour
         // If you want to jump in ladders, leave it here, otherwise move it down
         if (Input.GetButtonDown(PC2D.Input.JUMP))
         {
+            this.GetComponent<PlayerAudioClips>().onPlayerMove();
             _motor.Jump();
             _motor.DisableRestrictedArea();
         }
@@ -61,9 +62,10 @@ public class PlayerController2D : MonoBehaviour
         // XY freedom movement
         if (_motor.motorState == PlatformerMotor2D.MotorState.FreedomState)
         {
+            this.GetComponent<PlayerAudioClips>().onPlayerMove();
             _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
             _motor.normalizedYMovement = Input.GetAxis(PC2D.Input.VERTICAL);
-
+            this.GetComponent<PlayerAudioClips>().onPlayerMove();
             return; // do nothing more
         }
 
@@ -71,6 +73,7 @@ public class PlayerController2D : MonoBehaviour
         if (Mathf.Abs(Input.GetAxis(PC2D.Input.HORIZONTAL)) > PC2D.Globals.INPUT_THRESHOLD)
         {
             _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
+       
         }
         else
         {
@@ -79,6 +82,10 @@ public class PlayerController2D : MonoBehaviour
 
         if (Input.GetAxis(PC2D.Input.VERTICAL) != 0)
         {
+            if (!this.GetComponent<AudioSource>().isPlaying) {
+                this.GetComponent<PlayerAudioClips>().onPlayerMove2();
+            }
+
             bool up_pressed = Input.GetAxis(PC2D.Input.VERTICAL) > 0;
             if (_motor.IsOnLadder())
             {
@@ -106,6 +113,7 @@ public class PlayerController2D : MonoBehaviour
                     // start XY movement
                     _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
                     _motor.normalizedYMovement = Input.GetAxis(PC2D.Input.VERTICAL);
+
                 }
             }
         }
@@ -116,6 +124,7 @@ public class PlayerController2D : MonoBehaviour
 
         if (Input.GetButtonDown(PC2D.Input.DASH))
         {
+            this.GetComponent<PlayerAudioClips>().onPlayerDash();
             _motor.Dash();
         }
     }
