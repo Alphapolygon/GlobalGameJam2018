@@ -17,6 +17,6 @@ public class FaderController : MonoBehaviour {
     }
 
     public void onFade() {
-        this.GetComponent<Image>().DOColor(Fade,1f);
+        this.GetComponent<Image>().DOColor(Fade,3f);
     }
 }

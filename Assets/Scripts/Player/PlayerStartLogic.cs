@@ -7,7 +7,7 @@ public class PlayerStartLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameObject start = GameObject.FindGameObjectWithTag("Start");
-        this.transform.position = start.transform.position;
+        this.transform.position = start.transform.position +  new Vector3(0,1,0);
         StartCoroutine(wait());
 	}
 
