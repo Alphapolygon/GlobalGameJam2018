@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simpact: {fileID: 8300000, guid: 7dc3a819587bb3f46a4273a7737d1f5c, type: 3}
+  sMove2: {fileID: 8300000, guid: ca271a1d5f5fa504694bd1230a0fb74d, type: 3}
   sMove: {fileID: 8300000, guid: 73d570078056e8e41a369146b93111e2, type: 3}
   sDash: {fileID: 8300000, guid: 7cb3b724bd75f8341a62cbd869735f66, type: 3}
   sEnd: {fileID: 8300000, guid: 44c8839e07523f643b770db6d3f0f08a, type: 3}
