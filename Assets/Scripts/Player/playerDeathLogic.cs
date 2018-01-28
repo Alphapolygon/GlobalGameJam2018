@@ -30,6 +30,7 @@ public class playerDeathLogic : MonoBehaviour {
             float time = (this.GetComponent<PlayerLevelTimeLogic>().LevelTime - Time.timeSinceLevelLoad);
             this.GetComponent<PlayerLevelTimeLogic>().updateTime = false;
             this.GetComponent<PlayerAudioClips>().onPlayerEnd();
+            NextScene();
         }
 
     
@@ -44,6 +45,18 @@ public class playerDeathLogic : MonoBehaviour {
 
     public void restartCurrentScene() {
         StartCoroutine(ReloadScene());
+    }
+
+    public void NextScene() {
+        StartCoroutine(NextScenetus());
+    }
+
+    private IEnumerator NextScenetus() {
+        this.transform.GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(1);
+        int scene = SceneManager.GetActiveScene().buildIndex+1;
+        if (scene >= SceneManager.sceneCountInBuildSettings) scene = 0;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
     private IEnumerator ReloadScene() {
