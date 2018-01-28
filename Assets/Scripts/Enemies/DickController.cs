@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(DoTweenPositionHelper))]
 
-public class SpikesController : MonoBehaviour {
+public class DickController : MonoBehaviour {
+
     [SerializeField]
     private PathTool wayPoints;
     [SerializeField]
@@ -18,7 +17,15 @@ public class SpikesController : MonoBehaviour {
 
     }
 
+    void Update() {
+
+    }
     public void onMoveTo() {
+        StartCoroutine(wait());
+    }
+
+    IEnumerator wait() {
+        yield return new WaitForSecondsRealtime(1f);
         move = true;
         wayPointCount++;
         if (wayPointCount >= wayPoints.nodes.Count) wayPointCount = 0;
