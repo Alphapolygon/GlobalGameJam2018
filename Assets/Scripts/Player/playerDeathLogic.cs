@@ -19,14 +19,14 @@ public class playerDeathLogic : MonoBehaviour {
 
     // Use this for initialization
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag.Equals("Enemy")) {
+        if (other.tag.Equals("Enemy") && dying == false) {
             Instantiate(DeathEffect, this.transform.position, Quaternion.identity);
             this.GetComponent<PlayerAudioClips>().onPlayerimpact();
             die();
         }
 
 
-        if (other.tag.Equals("End")) {
+        if (other.tag.Equals("End") && dying == false) {
             float time = (this.GetComponent<PlayerLevelTimeLogic>().LevelTime - Time.timeSinceLevelLoad);
             this.GetComponent<PlayerLevelTimeLogic>().updateTime = false;
             this.GetComponent<PlayerAudioClips>().onPlayerEnd();
