@@ -17,26 +17,32 @@ public class PlayerAudioClips : MonoBehaviour {
 
 
     public void onPlayerEnd() {
+        if (!audioSource.isPlaying)
         onPlayAudio(sEnd);
     }
 
     public void onPlayerimpact() {
+        if (!audioSource.isPlaying)
         onPlayAudio(simpact);
     }
 
     public void onPlayerMove() {
+         if(!audioSource.isPlaying)
         onPlayAudio(sMove);
     }
 
     public void onPlayerMove2() {
+        if (!audioSource.isPlaying)
         onPlayAudio(sMove2);
     }
 
     public void onPlayerDash() {
+        if (!audioSource.isPlaying)
         onPlayAudio(sDash);
     }
 
     void onPlayAudio(AudioClip file) {
-        audioSource.PlayOneShot(file, 0.7F);
+        if(!audioSource.isPlaying)
+         audioSource.PlayOneShot(file, 0.7F);
     }
 }
